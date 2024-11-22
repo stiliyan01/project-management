@@ -25,9 +25,9 @@ class TaskController extends Controller
      */
     public function create(Request $request)
     {
-        $project_id = $request->query('project_id'); 
-        
-        if(!$project_id){
+        $project_id = $request->query('project_id');
+
+        if (!$project_id) {
             $projects = Project::all();
             return view('tasks.create', ['projects' => $projects]);
         }
@@ -53,7 +53,7 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         $task = Task::with('project')->find($task->id);
-        
+
         return view('tasks.show', ['task' => $task]);
     }
 

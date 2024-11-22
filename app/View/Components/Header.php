@@ -12,7 +12,7 @@ class Header extends Component
     public $subtitle;
     public $route;
     public $buttonText;
-    
+
     public function __construct($title, $subtitle, $route = null, $buttonText = null)
     {
         $this->title = $title;

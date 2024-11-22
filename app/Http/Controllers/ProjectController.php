@@ -15,7 +15,7 @@ class ProjectController extends Controller
     {
         $projects = Project::with('tasks')->get();
 
-        return view('projects.index', ['projects'=>$projects]);
+        return view('projects.index', ['projects' => $projects]);
     }
 
     /**
@@ -50,7 +50,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', ['project'=>$project]);
+        return view('projects.edit', ['project' => $project]);
     }
 
     /**
