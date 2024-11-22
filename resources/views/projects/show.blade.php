@@ -6,7 +6,7 @@
     <div class="text-center mb-4">
         <h1 class="display-4">Project: {{ $project->name }}</h1>
 
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center gap-2">
             <a href="{{ route('projects.edit', ['project' => $project]) }}" class="btn btn-primary mt-3">Edit Project</a>
 
             <form action='{{ route('projects.destroy', ['project' => $project]) }}' method="POST">
