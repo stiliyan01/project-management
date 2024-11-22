@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -14,9 +13,16 @@
                     <form action="{{ route('projects.update', ['project' => $project]) }}" method="POST">
                         @method('PUT')
                         @csrf
+                    
                         <div class="mb-3">
                             <label for="name" class="form-label">Project Name</label>
-                            <input type="text" id="name" name="name" class="form-control" value='{{ $project->name }}' required>
+
+                            <input type="text" id="name" name="name" class="form-control 
+                            @error('name') is-invalid @enderror" value="{{ old('name', $project->name) }}" required>
+
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                        
                         <div class="text-center">
@@ -29,5 +35,4 @@
         </div>
     </div>
 </div>
-
 @endsection
