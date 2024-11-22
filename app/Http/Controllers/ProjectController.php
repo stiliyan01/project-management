@@ -33,7 +33,7 @@ class ProjectController extends Controller
     {
         Project::create($request->validated());
 
-        return redirect('projects');
+        return redirect()->route('projects.index')->with('success', 'Project created successfully!');
     }
 
     /**

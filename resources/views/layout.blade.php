@@ -24,8 +24,21 @@
         </div>
       </nav>
       
-    @yield('content')
+      @if(session('success'))
+        <div id="successMessage" class="alert alert-success position-fixed top-0 end-0 m-3" role="alert">
+            {{ session('success') }}
+        </div>
+      @endif
+
+      @yield('content')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
+    
+    <script>
+        setTimeout(function() {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000);
+    </script>
+
+  </body>
 </html>
