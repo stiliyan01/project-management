@@ -3,8 +3,9 @@
         <div class="card-body d-flex justify-content-between" style="min-height: 100px">
             <div>
                 <h5 class="card-title">{{ $title }}</h5>
-                @isset($projectName)
-                    <p class="card-text">Project: {{ $projectName }}</p>
+                
+                @isset($subTitle)
+                    <p class="card-text">{{ $subTitle }}</p>
                 @endisset
             </div>
             <a href="{{ $route }}" class="btn btn-success btn-sm d-inline-flex align-items-center">View</a>

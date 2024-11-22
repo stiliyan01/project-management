@@ -14,6 +14,7 @@
             <x-card 
                 :title="$project->name"
                 :route="route('projects.show', [$project->id])" 
+                :subTitle="'Tasks: ' . count($project->tasks)"
             />
         @endforeach
     </div>

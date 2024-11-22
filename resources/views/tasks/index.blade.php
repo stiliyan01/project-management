@@ -13,7 +13,7 @@
         @foreach($tasks as $task)
             <x-card 
                 :title="$task->name"
-                :projectName="$task->project->name"
+                :subTitle="$task->project->name"
                 :route="route('tasks.show', ['task' => $task])" 
             />
         @endforeach
