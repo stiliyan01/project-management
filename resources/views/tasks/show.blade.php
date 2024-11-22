@@ -10,7 +10,6 @@
             <h2 class="card-title">{{ $task->name }}</h2>
             <p><strong>Due Date:</strong> {{ $task->due_date }}</p>
             <p><strong>Project:</strong> {{ $task->project->name }}</p>
-            <p><strong>Description:</strong> {!! ($task->description) ?? 'No description provided' !!}</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
             <a href="{{ route('tasks.edit', $task) }}" class="btn btn-primary">Edit Task</a>
