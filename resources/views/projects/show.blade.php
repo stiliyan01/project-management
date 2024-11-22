@@ -42,7 +42,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Task: {{ $task->name}}</h5>
-                            <p><strong>Due Date:</strong> {{ $task->due_date}}</p>
+                            
                             <a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="btn btn-success btn-sm">View Task</a>
                         </div>
                     </div>
