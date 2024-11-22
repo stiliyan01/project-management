@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\Task\StoreTaskRequest;
 use App\Http\Requests\Task\UpdateTaskRequest;
 
@@ -13,15 +15,24 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        dd(Task::all());
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $project_id = $request->query('project_id'); 
+        
+        if(!$project_id){
+            $projects = Project::all();
+            return view('tasks.create', ['projects' => $projects]);
+        }
+
+        $project = Project::findOrFail($project_id);
+
+        return view('tasks.create', ['project' => $project]);
     }
 
     /**
@@ -29,7 +40,9 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        //
+        $task = Task::create($request->validated());
+
+        return redirect()->route('projects.show', $task->project_id);
     }
 
     /**

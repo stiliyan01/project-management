@@ -15,7 +15,7 @@
                 <button class="btn btn-danger mt-3">Delete Project</button>
             </form>
 
-            <a href="{{ route('tasks.create') }}" class="btn btn-success mt-3">Create Task</a>
+            <a href="{{ route('tasks.create', ['project_id' => $project->id]) }}" class="btn btn-success mt-3">Create Task</a>
 
             <a href="{{ route('projects.index') }}" class="btn btn-secondary mt-3">Back to Projects</a>
          </div>
