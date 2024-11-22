@@ -41,7 +41,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $project = Project::with('relationshipName')->find($project->id);
+        $project = Project::with('tasks')->find($project->id);
         return view('projects.show', ['project' => $project]);
     }
 
