@@ -15,7 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        dd(Task::all());
+        $tasks = Task::with('project')->get();
+
+        return view('tasks.index', ['tasks' => $tasks]);
     }
 
     /**
