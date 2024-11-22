@@ -49,7 +49,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('projects.edit', ['project'=>$project]);
     }
 
     /**
@@ -57,7 +57,9 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $project->update($request->validated());
+
+        return redirect('projects');
     }
 
     /**

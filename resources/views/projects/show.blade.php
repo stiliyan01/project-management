@@ -5,7 +5,9 @@
 <div class="container my-5">
     <div class="text-center mb-4">
         <h1 class="display-4">Project: {{ $project->name }}</h1>
-      
+
+        <a href="{{ route('projects.edit', ['project' => $project]) }}" class="btn btn-primary mt-3">Edit Project</a>
+
         <a href="{{ route('projects.index') }}" class="btn btn-secondary mt-3">Back to Projects</a>
     </div>
 
