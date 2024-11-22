@@ -60,7 +60,7 @@ class ProjectController extends Controller
     {
         $project->update($request->validated());
 
-        return redirect()->route('projects.index')->with('success', 'Project updated successfully!');
+        return redirect()->back()->with('success', 'Project updated successfully!');
     }
 
     /**

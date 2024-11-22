@@ -76,7 +76,7 @@ class TaskController extends Controller
     {
         $task->update($request->validated());
 
-        return redirect()->route('projects.show', ['project' => $task->project_id])->with('success', 'Task updated successfully!');
+        return redirect()->back()->with('success', 'Task updated successfully!');
     }
 
     /**

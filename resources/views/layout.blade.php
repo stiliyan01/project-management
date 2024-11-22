@@ -37,7 +37,7 @@
     <script>
         setTimeout(function() {
             document.getElementById('successMessage').style.display = 'none';
-        }, 1000);
+        }, 2000);
     </script>
 
   </body>

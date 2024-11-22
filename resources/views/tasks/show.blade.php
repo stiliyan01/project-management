@@ -20,7 +20,7 @@
                 <button class="btn btn-danger">Delete Task</button>
             </form>
 
-            <a href="{{ route('projects.show', $task->project) }}" class="btn btn-secondary">Back to Project</a>
+            <a href="{{ route('projects.show', $task->project) }}" class="btn btn-secondary">Go to project</a>
         </div>
     </div>
 </div>
