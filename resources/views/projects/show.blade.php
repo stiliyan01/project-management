@@ -38,15 +38,10 @@
         <h3 class="text-center mb-3">Related Tasks</h3>
         <div class="row g-4">
             @forelse  ($project->tasks as $task)
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Task: {{ $task->name}}</h5>
-                            
-                            <a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="btn btn-success btn-sm">View Task</a>
-                        </div>
-                    </div>
-                </div>
+                <x-card 
+                    :title="$task->name"
+                    :route="route('tasks.show', ['task' => $task->id])" 
+                />
             @empty
                 <div class="col-md-12 d-flex justify-content-center">
                     <div class="text-danger">No tasks found for this project</div>

@@ -9,15 +9,15 @@ use Illuminate\View\Component;
 class Card extends Component
 {
     public $title;
-    public $projectName;
+    public $subTitle;
     public $dueDate;
     public $route;
 
-    public function __construct($title, $route, $projectName = null, $dueDate = null)
+    public function __construct($title, $route, $subTitle = null, $dueDate = null)
     {
         $this->title = $title;
         $this->route = $route;
-        $this->projectName = $projectName;
+        $this->subTitle = $subTitle;
         $this->dueDate = $dueDate;
     }
 
