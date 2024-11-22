@@ -25,7 +25,7 @@
     <div class="mt-5">
         <h3 class="text-center mb-3">Related Tasks</h3>
         <div class="row g-4">
-            @foreach ($project->tasks as $task)
+            @forelse  ($project->tasks as $task)
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
@@ -35,7 +35,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-md-12 d-flex justify-content-center">
+                    <div class="text-danger">No tasks found for this project</div>
+            @endforelse
         </div>
     </div>
 </div>
