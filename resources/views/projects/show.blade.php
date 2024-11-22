@@ -6,9 +6,17 @@
     <div class="text-center mb-4">
         <h1 class="display-4">Project: {{ $project->name }}</h1>
 
-        <a href="{{ route('projects.edit', ['project' => $project]) }}" class="btn btn-primary mt-3">Edit Project</a>
+        <div class="d-flex justify-content-center">
+            <a href="{{ route('projects.edit', ['project' => $project]) }}" class="btn btn-primary mt-3">Edit Project</a>
 
-        <a href="{{ route('projects.index') }}" class="btn btn-secondary mt-3">Back to Projects</a>
+            <form action='{{ route('projects.destroy', ['project' => $project]) }}' method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger mt-3">Delete Project</button>
+            </form>
+
+            <a href="{{ route('projects.index') }}" class="btn btn-secondary mt-3">Back to Projects</a>
+         </div>
     </div>
 
     <div class="row justify-content-center">
