@@ -13,7 +13,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::with('tasks')->get();
+
+        return view('projects.index', ['projects'=>$projects]);
     }
 
     /**
