@@ -60,7 +60,11 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        $projects = Project::all();
+
+        $task = Task::with('project')->find($task->id);
+
+        return view('tasks.edit', ['task' => $task, 'projects' => $projects]);
     }
 
     /**
@@ -68,7 +72,9 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        //
+        $task->update($request->validated());
+
+        return redirect()->route('projects.show', $task->project_id);
     }
 
     /**
@@ -76,6 +82,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect()->route('projects.show', $task->project_id);
     }
 }
