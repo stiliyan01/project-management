@@ -5,7 +5,7 @@
     <div class="container">
         <h1>Manage Your Projects</h1>
         <p class="lead">Keep track of all your projects and tasks in one place</p>
-        <a href="#" class="btn btn-light btn-lg">Add New Project</a>
+        <a href="{{ route('projects.create') }}" class="btn btn-light btn-lg">Add New Project</a>
     </div>
 </header>
 
