@@ -1,29 +1,21 @@
 @extends('layout')
 @section('content')
 
-<header class="bg-success text-white text-center py-5">
-    <div class="container">
-        <h1>Manage Your Projects</h1>
-        <p class="lead">Keep track of all your projects and tasks in one place</p>
-        <a href="{{ route('projects.create') }}" class="btn btn-light btn-lg">Add New Project</a>
-    </div>
-</header>
+<x-header 
+    title="Manage Your Projects"
+    subtitle="Keep track of all your projects and tasks in one place"
+    route="projects.create"
+    buttonText="Add New Project"
+/>
 
 <div class="container my-5">
-    <h2 class="text-center mb-4">Projects</h2>
     <div class="row g-4">
         @foreach ($projects as $project)
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body d-flex justify-content-between">
-                        <h5 class="card-title">{{$project->name}}</h5>
-                        
-                        <a href="{{ route('projects.show', [$project->id]) }}" class="btn btn-success">View Details</a>
-                    </div>
-                </div>
-            </div>
+            <x-card 
+                :title="$project->name"
+                :route="route('projects.show', [$project->id])" 
+            />
         @endforeach
     </div>
 </div>
-
 @endsection
