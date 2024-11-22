@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         $task = Task::create($request->validated());
 
-        return redirect()->route('projects.show', $task->project_id);
+        return redirect()->route('projects.show', $task->project_id)->with('success', 'Task created successfully!');
     }
 
     /**
@@ -76,7 +76,7 @@ class TaskController extends Controller
     {
         $task->update($request->validated());
 
-        return redirect()->route('projects.show', $task->project_id);
+        return redirect()->route('projects.show', ['project' => $task->project_id])->with('success', 'Task updated successfully!');
     }
 
     /**

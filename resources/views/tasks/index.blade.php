@@ -25,8 +25,9 @@
                 <td>{{ $task->project->name }}</td>
                 <td>{{ $task->due_date }}</td>
                 <td>
-                    <a href="{{ route('tasks.show', $task) }}" class="btn btn-info btn-sm">View</a>
-                    <a href="{{ route('tasks.edit', $task) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{{ route('tasks.show', ['task' => $task]) }}" class="btn btn-info btn-sm">View</a>
+                    
+                    <a href="{{ route('tasks.edit', ['task' => $task]) }}" class="btn btn-primary btn-sm">Edit</a>
 
                     <form action="{{ route('tasks.destroy', $task) }}" method="POST" class="d-inline-block">
                         @csrf
