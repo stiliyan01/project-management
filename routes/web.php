@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+   return redirect()->route('projects.index');
+});
+
 Route::resource('projects', ProjectController::class);
 
 Route::get('/tasks/create/{project_id}', [TaskController::class, 'create'])->name('tasks.create');
